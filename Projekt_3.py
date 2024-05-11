@@ -5,7 +5,7 @@ email: lubos.vavruska@seznam.cz
 discord: 
 """
 
-#import sys #varianta pro spuštění z příkazového řádku
+#import sys #varianta pro spuštění z příkazového řádku (html kód stránek se v mém počítači po spuštění z příkazového řádku nezobrazí kompletní, možná zlobí zvláštní znaky v url?)
 import csv
 
 import requests 
@@ -34,10 +34,9 @@ for link in linksToMunicipalities:
     if "311" in pureLink and pureLink not in pureLinks:
         pureLinks.append(pureLink)
 
-#ODSADIT?
+overallData = []
 for member in pureLinks: #parsování získaných odkazů
     data = dict()
-    overallData = []
 
     parsedMunicipality = parseWeb(member)
     code = str(member)[str(member).index("xobec=")+6:str(member).index("xobec=")+12] #Zjištění hodnoty code pro výsledný přehled
@@ -75,7 +74,8 @@ for member in pureLinks: #parsování získaných odkazů
 
     for i in range(0, len(parties)):
         data[partiesModified[i]] = votesModified[i]
-        overallData.append(data)
+    
+    overallData.append(data)
 
 csv_file = open("electionsResult.csv", mode="a") #Zápis dat do csv
 writer = csv.DictWriter(csv_file, fieldnames=overallData[0].keys())
