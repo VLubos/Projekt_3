@@ -2,7 +2,7 @@
 projekt_3.py: třetí projekt do Engeto Online Python Akademie
 author: Luboš Vavruška
 email: lubos.vavruska@seznam.cz
-discord: 
+discord user name/ displayed name: vlubos/ Luboš
 """
 
 #import sys #varianta pro spuštění z příkazového řádku (html kód stránek se v mém počítači po spuštění z příkazového řádku nezobrazí kompletní, možná zlobí zvláštní znaky v url?)
